@@ -1,6 +1,5 @@
 package com.example.aclresource.model;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -12,18 +11,11 @@ import javax.persistence.Id;
 @Data
 @Entity
 @NoArgsConstructor
-@AllArgsConstructor
-public class GroupEdge {
-
-    public GroupEdge(Long source, Long target) {
-        this.source = source;
-        this.target = target;
-    }
-
+public class PartyGrant {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Long source;
-    private Long target;
+    private Long partyId;
+    private Long grantId;
 }

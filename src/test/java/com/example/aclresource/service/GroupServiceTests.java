@@ -1,24 +1,15 @@
 package com.example.aclresource.service;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
-import com.example.aclresource.model.AuthGroup;
-
-import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
-
 @SpringBootTest
-class GroupServiceTests {
+class PartyServiceTests {
 
-    @Autowired GroupService groupService;
+    @Autowired PartyService partyService;
     // GroupEdgeRepository groupGroupRepositoryMock;
 
-    public GroupServiceTests() {
+    public PartyServiceTests() {
         // groupGroupRepositoryMock = Mockito.mock(GroupEdgeRepository.class);
         // groupService = new GroupService(groupGroupRepositoryMock);
     }
@@ -46,17 +37,5 @@ class GroupServiceTests {
     //                 Stream.of(2L, 3L, 4L, 5L).collect(Collectors.toList()),
     //                 groupService.getSubgroups(1L));
     //     }
-    @Test
-    void boh() {
-        groupService.saveGroup(new AuthGroup("test1"));
-        groupService.saveGroup(new AuthGroup("test2"));
-        groupService.saveGroup(new AuthGroup("test3"));
 
-        groupService.addEgde(1L, 2L);
-        groupService.addEgde(2L, 3L);
-
-        List<Long> result = Stream.of(2L, 3L).collect(Collectors.toList());
-
-        assertEquals(result, groupService.getSubgroups(1L));
-    }
 }

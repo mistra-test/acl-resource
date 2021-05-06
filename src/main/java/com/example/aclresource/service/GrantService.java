@@ -1,32 +1,20 @@
 package com.example.aclresource.service;
 
 import com.example.aclresource.model.Grant;
-import com.example.aclresource.repository.GrantRepository;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
-public class GrantService {
+public interface GrantService {
 
-    private GrantRepository grantRepository;
+    public Grant save(Grant grant);
 
-    @Autowired
-    public GrantService(GrantRepository grantRepository) {
-        this.grantRepository = grantRepository;
-    }
+    public void deleteById(Long id);
 
-    public Grant save(Grant grant) {
-        return grantRepository.save(grant);
-    }
+    public Optional<Grant> findById(Long id);
 
-    public void deleteById(Long id) {
-        grantRepository.deleteById(id);
-    }
-
-    public Optional<Grant> findById(Long id) {
-        return grantRepository.findById(id);
-    }
+    List<String> findByUserId(Long userId);
 }

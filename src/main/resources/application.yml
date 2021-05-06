@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: acl-resource
+
+# logging:
+#   level:
+#     "[com.netflix.discovery]": OFF
+
+server:
+  port: 0

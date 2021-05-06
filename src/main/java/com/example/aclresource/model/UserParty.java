@@ -11,11 +11,17 @@ import javax.persistence.Id;
 @Data
 @Entity
 @NoArgsConstructor
-public class UserGroup {
+public class UserParty {
+
+    public UserParty(Long userId, Long partyId) {
+        this.userId = userId;
+        this.partyId = partyId;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private Long userId;
-    private Long groupId;
+    private Long partyId;
 }

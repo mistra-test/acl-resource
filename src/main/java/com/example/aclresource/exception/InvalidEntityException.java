@@ -1,4 +1,4 @@
-package com.example.aclresource.validation;
+package com.example.aclresource.exception;
 
 import javax.validation.ValidationException;
 

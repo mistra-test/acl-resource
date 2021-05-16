@@ -1,23 +1,23 @@
 package com.example.aclresource.service.impl;
 
 import com.example.aclresource.repository.GrantRepository;
-import com.example.aclresource.repository.PartyRepository;
-import com.example.aclresource.repository.UserPartyRepository;
+import com.example.aclresource.repository.PartyGrantRepository;
 import com.example.aclresource.service.GrantService;
+import com.example.aclresource.validation.GrantValidator;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class DefaultGrantServiceConfig {
+public class DefaultGrantServiceFactory {
 
     @Bean
     @Autowired
     public GrantService getDefaultGrantService(
             GrantRepository grantRepository,
-            PartyRepository partyRepository,
-            UserPartyRepository userPartyRepository) {
-        return new DefaultGrantService(grantRepository, partyRepository, userPartyRepository);
+            PartyGrantRepository partyGrantRepository,
+            GrantValidator grantValidator) {
+        return new DefaultGrantService(grantRepository, partyGrantRepository, grantValidator);
     }
 }

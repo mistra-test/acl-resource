@@ -13,7 +13,7 @@ class GrantDTO {
     private String name;
 
     public static Grant toGrant(GrantDTO dto) {
-        Grant grant = new Grant();
+        var grant = new Grant();
 
         grant.setId(dto.getId());
         grant.setName(dto.getName());

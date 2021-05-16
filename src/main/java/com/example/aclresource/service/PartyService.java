@@ -1,30 +1,28 @@
 package com.example.aclresource.service;
 
 import com.example.aclresource.model.Party;
+import com.example.aclresource.model.PartyGrant;
 import com.example.aclresource.model.UserParty;
-import com.example.aclresource.repository.PartyRepository;
-import com.example.aclresource.repository.UserPartyRepository;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
-public class PartyService {
+public interface PartyService {
+    public List<Party> findAll();
 
-    PartyRepository partyRepository;
-    UserPartyRepository userPartyRepository;
+    public List<Long> findAssignedUserIdList(Long partyId);
 
-    @Autowired
-    public PartyService(PartyRepository partyRepository, UserPartyRepository userPartyRepository) {
-        this.partyRepository = partyRepository;
-        this.userPartyRepository = userPartyRepository;
-    }
+    public PartyGrant assignGrant(Long partyId, Long grantId);
 
-    public Party saveGroup(Party group) {
-        return partyRepository.save(group);
-    }
+    public void removeGrant(Long partyId, Long grantId);
 
-    public void assignUserToParty(Long partyId, Long userId) {
-        userPartyRepository.save(new UserParty(userId, partyId));
-    }
+    public UserParty assignUserId(Long partyId, Long userId);
+
+    public void removeUser(Long partyId, Long userId);
+
+    public Party save(Party party);
+
+    public void deleteById(Long partyId);
 }

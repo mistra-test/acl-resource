@@ -8,4 +8,8 @@ import java.util.List;
 
 public interface UserPartyRepository extends JpaRepository<UserParty, Long> {
     List<UserParty> findByUserId(Long userId);
+
+    List<UserParty> findByPartyId(Long partyId);
+
+    void deleteByPartyId(Long partyId);
 }

@@ -13,11 +13,6 @@ class PartyDTO {
     private String name;
 
     public static Party toParty(PartyDTO dto) {
-        var party = new Party();
-
-        party.setId(dto.getId());
-        party.setName(dto.getName());
-
-        return party;
+        return new Party(dto.getId(), dto.getName());
     }
 }

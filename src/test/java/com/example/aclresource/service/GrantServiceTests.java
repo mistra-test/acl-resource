@@ -2,6 +2,7 @@ package com.example.aclresource.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import com.example.aclresource.exception.InvalidEntityException;
 import com.example.aclresource.model.Grant;
 import com.example.aclresource.model.PartyGrant;
 import com.example.aclresource.repository.GrantRepository;
@@ -16,12 +17,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.util.Arrays;
 import java.util.Optional;
 
-import javax.validation.ValidationException;
-
 class DummyGrantValidator implements Validator<Grant> {
 
     @Override
-    public void validate(Grant grant) throws ValidationException {
+    public void validate(Grant grant) throws InvalidEntityException {
         // do nothing
     }
 }

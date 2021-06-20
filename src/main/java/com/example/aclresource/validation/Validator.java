@@ -1,7 +1,7 @@
 package com.example.aclresource.validation;
 
-import javax.validation.ValidationException;
+import com.example.aclresource.exception.InvalidEntityException;
 
 public interface Validator<E> {
-    void validate(E entity) throws ValidationException;
+    void validate(E entity) throws InvalidEntityException;
 }

@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: acl-resource-deployment
+  labels:
+    app: acl-resource
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: acl-resource
+  template:
+    metadata:
+      labels:
+        app: acl-resource
+    spec:
+      containers:
+      - name: acl-resource
+        image: skullgnammer/acl-resource:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "100M"
+          limits:
+            cpu: "800m"
+            memory: "200M"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: acl-resource-service
+spec:
+  selector:
+    app: acl-resource
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080

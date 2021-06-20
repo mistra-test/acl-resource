@@ -1,0 +1,16 @@
+CREATE TABLE IF NOT EXISTS grant (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS user_party (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,
+    party_id INT
+);
+
+CREATE TABLE IF NOT EXISTS party_grant (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    party_id INT,
+    grant_id INT
+);

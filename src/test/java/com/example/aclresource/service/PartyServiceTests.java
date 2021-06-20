@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import com.example.aclresource.exception.EntityNotFoundException;
+import com.example.aclresource.exception.InvalidEntityException;
 import com.example.aclresource.model.Party;
 import com.example.aclresource.model.PartyGrant;
 import com.example.aclresource.model.UserParty;
@@ -20,12 +21,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.Arrays;
 
-import javax.validation.ValidationException;
-
 class DummyPartyValidator implements Validator<Party> {
 
     @Override
-    public void validate(Party entity) throws ValidationException {
+    public void validate(Party entity) throws InvalidEntityException {
         // do nothing
     }
 }

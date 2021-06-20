@@ -1,10 +1,12 @@
 spring:
+  jpa:
+    generate-ddl: false
+    hibernate:
+      ddl-auto: none
   application:
     name: acl-resource
-
-# logging:
-#   level:
-#     "[com.netflix.discovery]": OFF
+  datasource:
+    url: jdbc:h2:mem:testdb
 
 server:
-  port: 0
+  port: 8080

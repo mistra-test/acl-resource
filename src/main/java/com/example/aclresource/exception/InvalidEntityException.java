@@ -1,8 +1,6 @@
 package com.example.aclresource.exception;
 
-import javax.validation.ValidationException;
-
-public class InvalidEntityException extends ValidationException {
+public class InvalidEntityException extends RuntimeException {
     public InvalidEntityException(String error) {
         super(error);
     }

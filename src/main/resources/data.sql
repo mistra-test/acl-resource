@@ -1,6 +1,6 @@
 INSERT INTO grant (id, name) VALUES
-  (1, 'movie_write'),
-  (2, 'movie_read');
+  (1, 'ROLE_movie:write'),
+  (2, 'ROLE_movie:read');
 
 INSERT INTO user_party (id, user_id, party_id) VALUES
   (1, 1, 1),
